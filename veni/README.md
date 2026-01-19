@@ -1,6 +1,6 @@
 # VENI
 
-This is the repository that contains source code for the [VENI website](https://veni.github.io).
+This is the repository that contains source code for the [VENI website](https://paul-pw.github.io/veni).
 
 If you find VENI useful for your work please cite:
 ```
