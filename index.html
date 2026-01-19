@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="VENI: Variational Encoder for Natural Illumination with a focus on rotation equivariance">
+  <meta name="keywords" content="VENI, RENI, Natural Illumination, Rotation equivariance">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VENI: Variational Encoder for Natural Illumination</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <!--<link rel="icon" href="./static/images/favicon.svg">-->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">VENI: Variational Encoder for Natural Illumination</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://github.com/paul-pw/">Paul Walker</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://jadgardner.github.io/">James A. D. Gardner</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://andreeadogaru.github.io/">Andreea Ardelean</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www-users.york.ac.uk/~waps101/">William A. P. Smith</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://eggerbernhard.ch/">Bernhard Egger</a><sup>1</sup>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Friedrich-Alexander-Universität Erlangen-Nürnberg,</span>
+            <span class="author-block"><sup>2</sup>University of York</span>
+          </div>
+
+          <!--TODO update paper and pdf links!!!-->
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+             <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/paul-pw/veni"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+           </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img id="teaser" src="./static/images/teaser.png"
+      <h2 class="subtitle has-text-centered">
+        VENI produces a better-behaved latent space compared to the current state of the art illumination prior (RENI++), which we demonstrate by evaluating its uniqueness through optimization of random latent codes and its reconstruction consistency via the correlation between latent space and image space distances.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+            <p>
+            Inverse rendering is an ill-posed problem, but priors like illumination priors, can simplify it. 
+            Existing work either disregards the spherical and rotation-equivariant nature of illumination environments or does not provide a well-behaved latent space. 
+            We propose a rotation-equivariant variational autoencoder that models natural illumination on the sphere without relying on 2D projections.
+            To preserve the SO(2)-equivariance of environment maps, we use a novel Vector Neuron Vision Transformer (VN-ViT) as encoder and a rotation-equivariant conditional neural field as decoder.
+            In the encoder, we reduce the equivariance from SO(3) to SO(2) using a novel SO(2)-equivariant fully connected layer, an extension of Vector Neurons.
+            We show that our SO(2)-equivariant fully connected layer outperforms standard Vector Neurons when used in our SO(2)-equivariant model.
+            Compared to previous methods, our variational autoencoder enables smoother interpolation in latent space and offers a more well-behaved latent space.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper video. -->
+<!--    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+</div>-->
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered">
+
+      <!-- Visual Effects. -->
+      <div class="column is-full-width">
+        <div class="content">
+          <h2 class="title is-3">Rotation Equivariance</h2>
+          <p>
+            An important feature of VENI is rotation equivariance. 
+            A rotation of the input causes the same rotation in the latent code
+            which causes the same rotation in the output.
+          </p>
+          <video poster="" id="rotation_equivariance" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/rot_300_fast_test.mp4"
+                    type="video/mp4">
+          </video>
+         <!-- <p>
+          This is enabled in the encoder by a novel model architecture, 
+          a Vector Neuron Vision Transformer (VN-ViT), 
+          combining the Vision Transformer architecture with Vector Neurons for rotation equivariance.
+         </p>-->
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered">
+
+      <!-- Visual Effects. -->
+      <div class="column is-full-width">
+        <div class="content">
+          <h2 class="title is-3">Reconstruction Quality</h2>
+          <p>
+            VENI achieves higher reconstruction quality compared to the current state of the art illumination prior (RENI++) and does especially well with low-dimensional latent spaces (27) compared to RENI++.
+          </p>
+          <img id="" src="./static/images/quality_fig_small.png" width="70%" class="center">
+         <!-- <p>
+          This is enabled in the encoder by a novel model architecture, 
+          a Vector Neuron Vision Transformer (VN-ViT), 
+          combining the Vision Transformer architecture with Vector Neurons for rotation equivariance.
+         </p>-->
+        </div>
+      </div>
+    </div>
+
+    <!-- Acknowledgments. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Acknowledgments</h2>
+            The authors gratefully acknowledge the scientific support and HPC resources provided by the Erlangen National High Performance Computing Center (NHR@FAU) of the Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU). The hardware is funded by the German Research Foundation (DFG).
+        <div class="content has-text-justified">
+        
+        </div>
+      </div>
+    </div>
+    <!--/ Concurrent Work. -->
+
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@misc{walker2026veni,
+  author        = {Paul Walker and James A. D. Gardner and Andreea Ardelean and William A. P. Smith and Bernhard Egger},
+  title         = {VENI: Variational Encoder for Natural Illumination},
+  eprint        = {},
+  archivePrefix = {},
+  primaryClass  = {},
+  year          = {2026},
+  month         = {Jan}
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+    <!--  <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>-->
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            The source code of this website is borrowed from <a href="https://github.com/nerfies/nerfies.github.io">nerfies</a> We thank the authors for sharing the template.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
